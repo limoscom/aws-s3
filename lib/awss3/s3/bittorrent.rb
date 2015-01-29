@@ -1,6 +1,6 @@
-module AWS
+module AWSS3
   module S3
-    # Objects on S3 can be distributed via the BitTorrent file sharing protocol. 
+    # Objects on S3 can be distributed via the BitTorrent file sharing protocol.
     #
     # You can get a torrent file for an object by calling <tt>torrent_for</tt>:
     #
@@ -25,7 +25,7 @@ module AWS
       def self.included(klass) #:nodoc:
         klass.extend ClassMethods
       end
-      
+
       # Adds methods to S3Object for accessing the torrent of a given object.
       module ClassMethods
         # Returns the torrent file for the object with the given <tt>key</tt>.
@@ -33,7 +33,7 @@ module AWS
           get(path!(bucket, key) << '?torrent').body
         end
         alias_method :torrent, :torrent_for
-        
+
         # Grants access to the object with the given <tt>key</tt> to be accessible as a torrent.
         def grant_torrent_access_to(key, bucket = nil)
           policy = acl(key, bucket)
@@ -43,12 +43,12 @@ module AWS
         end
         alias_method :grant_torrent_access, :grant_torrent_access_to
       end
-      
+
       # Returns the torrent file for the object.
       def torrent
         self.class.torrent_for(key, bucket.name)
       end
-      
+
       # Grants torrent access publicly to anyone who requests it on this object.
       def grant_torrent_access
         self.class.grant_torrent_access_to(key, bucket.name)
