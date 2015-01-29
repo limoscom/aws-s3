@@ -1,4 +1,4 @@
-module AWSS3S3
+module AWSS3
   module S3
     # Buckets are containers for objects (the files you store on S3). To create a new bucket you just specify its name.
     #

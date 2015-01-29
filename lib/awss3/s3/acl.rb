@@ -1,4 +1,4 @@
-module AWSS3S3
+module AWSS3
   module S3
     # By default buckets are private. This means that only the owner has access rights to the bucket and its objects.
     # Objects in that bucket inherit the permission of the bucket unless otherwise specified. When an object is private, the owner can

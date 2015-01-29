@@ -28,7 +28,7 @@ require 's3/connection'
 require 's3/authentication'
 require 's3/response'
 
-module AWSS3S3
+module AWSS3
   module S3
     UNSAFE_URI = /[^-_.!~*'()a-zA-Z\d;\/?:@&=$,\[\]]/n
 
