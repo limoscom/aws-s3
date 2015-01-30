@@ -298,9 +298,8 @@ module AWSS3
             bucket = nil
           end
           path = '/' << File.join(bucket_name(bucket), name)
-          byebug
           if (query = options[:query]).respond_to?(:to_query_string)
-            path << query.to_query_string
+            path << query.to_query_string rescue path
           end
           path
         end
