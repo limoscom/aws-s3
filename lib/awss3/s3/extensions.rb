@@ -3,7 +3,6 @@
 
 class Hash
   def to_query_string(include_question_mark = true)
-    byebug
     query_string = ''
     unless empty?
       query_string << '?' if include_question_mark
