@@ -83,7 +83,7 @@ namespace :dist do
     
   # Regenerate README before packaging
   task :package => 'doc:readme'
-  Rake::PackageTask.new(spec) do |pkg|
+  Rake::PackageTask.new("rake", "0.6.3.3") do |pkg|
     pkg.need_tar_gz = true
     pkg.package_files.include('{lib,script,test,support}/**/*')
     pkg.package_files.include('README')
@@ -293,8 +293,8 @@ end if File.exists?(File.join(library_root, 'TODO'))
 
 namespace :site do
   require 'erb'
-  require 'rdoc/markup/simple_markup'
-  require 'rdoc/markup/simple_markup/to_html'
+  #require 'rdoc/markup/simple_markup'
+  #require 'rdoc/markup/simple_markup/to_html'
   
   readme    = lambda { IO.read('README')[/^== Getting started\n(.*)/m, 1] }
 
